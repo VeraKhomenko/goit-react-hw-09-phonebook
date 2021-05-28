@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 
 const styles = {
   container: {
@@ -24,22 +24,5 @@ const HomeView = () => (
   </div>
 );
 
-// class HomeView extends React.Component {
-
-//   componentDidMount() {
-//     console.log("componentDidMount");
-//   }
-
-//   render() {
-//     return this.items().map(item => (
-//         return <li>{item.name}</li>;
-//     ));
-//   }
-
-//   items = () => {
-      
-//   }
-
-// }
 
 export default HomeView;

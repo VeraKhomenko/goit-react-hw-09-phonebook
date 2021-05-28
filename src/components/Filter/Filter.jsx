@@ -1,10 +1,14 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import {  useDispatch, useSelector } from 'react-redux';
 import style from './Filter.module.css';
 import { getFilter } from '../../redux/contactsSelectors';
 import { filter } from '../../redux/actions';
 
-const Filter = ({ value, onChange }) => (
+
+export default function Filter() {
+  const value = useSelector(getFilter);
+  const dispatch = useDispatch();
+return (
   <div className={style.form}>
     <label className={style.label} htmlFor="">
       <p className={style.text}>Find contacts by name:</p>
@@ -12,17 +16,9 @@ const Filter = ({ value, onChange }) => (
         className={style.input}
         type="text"
         value={value}
-        onChange={onChange}
+        onChange={e => dispatch(filter(e.target.value))}
       />
     </label>
   </div>
 );
-
-const mapStateToProps = state => ({
-  value: getFilter(state),
-});
-const mapDispatchToProps = dispatch => ({
-  onChange: e => dispatch(filter(e.target.value)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Filter);
+}

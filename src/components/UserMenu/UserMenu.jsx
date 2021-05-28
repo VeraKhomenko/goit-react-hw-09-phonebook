@@ -1,5 +1,5 @@
-import React from 'react';
-import { connect } from 'react-redux';
+// import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { authSelectors, authOperations } from '../../redux/auth';
 import defaultAvatar from './default.jpg';
 
@@ -17,22 +17,17 @@ const styles = {
   },
 };
 
-const UserMenu = ({ avatar, name, onLogout }) => (
-  <div style={styles.container}>
-    <img src={avatar} alt="" width="32" style={styles.avatar} />
+export default function UserMenu() {
+  const name = useSelector(authSelectors.getUsername);
+  const dispatch = useDispatch();
+
+  return (
+    <div style={styles.container}>
+    <img src={defaultAvatar} alt="" width="32" style={styles.avatar} />
     <span style={styles.name}>Welcome, {name}</span>
-    <button type="button" onClick={onLogout}>
+    <button type="button" onClick={() => dispatch(authOperations.logOut())}>
       Logout
     </button>
   </div>
-);
-const mapStateToProps = state => ({
-  name: authSelectors.getUsername(state),
-  avatar: defaultAvatar,
-});
-
-const mapDispatchToProps = {
-  onLogout: authOperations.logOut,
+  )
 };
-
-export default connect(mapStateToProps, mapDispatchToProps)(UserMenu);
