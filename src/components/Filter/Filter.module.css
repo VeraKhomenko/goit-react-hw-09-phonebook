@@ -1,0 +1,21 @@
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  width: 350px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  align-self: center;
+  border: 1px solid #dbd2fd;
+  border-radius: 5px;
+}
+.label {
+  display: block;
+  justify-content: center;
+  align-self: center;
+  font-size: 18px;
+}
+.text {
+  text-align: left;
+}

@@ -1,2 +1,2 @@
-# goit-react-hw-09-phonebook
-goit-react-hw-09-phonebook React Hooks
+# goit-react-hw-08-phonebook
+hw-08-phonebook
